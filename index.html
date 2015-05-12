@@ -1,0 +1,603 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<title>Using The Right Tool For the Job</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=1274, user-scalable=no">
+	<meta name="description" content="Using The Right Tool For the Job">
+	<meta name="author" content="Drew Lanenga">
+	<meta name="generator" content="slidify" />
+	<!-- LOAD STYLE SHEETS -->
+	<link rel="stylesheet" href="libraries/frameworks/shower/themes/ribbon/styles/screen.css">
+	<link rel="stylesheet" media="print"
+	  href="libraries/frameworks/shower/themes/ribbon/styles/print.css">
+	<link rel="stylesheet" href="libraries/highlighters/highlight.js/css/arta.css">  <link rel="stylesheet" href = "assets/css/ribbons.css">
+
+	<!--
+		To apply styles to the certain slides
+		use slide ID to get needed elements
+		-->
+	<style>
+		#Cover h2 {
+      margin:65px 0 0;
+			color:#FFF;
+			text-align:center;
+			font-size:70px;
+			}
+		#FitToWidth h2,
+		#FitToHeight h2 {
+			color:#FFF;
+			text-align:center;
+			}
+	</style> 
+</head>
+<body class="list">
+  <header class="caption">
+  	<h1>Using The Right Tool For the Job</h1>
+  	<h2>Prototyping in R, Productionalizing in Go</h2>
+  	<p>
+  		<strong>Drew Lanenga</strong>, Data Scientist, Lytics
+  	</p>
+	</header>
+  <section class="slide cover" id="Cover">
+  <div>
+    <h2>R vs. Go</h2>
+    <p><img src="assets/img/flying-gopher.jpg" alt="flying-gopher"></p>
+
+  </div>
+</section>
+<section class="slide shout" id="slide-2">
+  <div>
+    <h2>Confessions</h2>
+    
+  </div>
+</section>
+<section class="slide " id="slide-3">
+  <div>
+    <h2>Confessions</h2>
+    <p>Who has ever made R do something it probably wasn&#39;t supposed to do?</p>
+
+<div style="text-align:center;">
+    <img src="assets/img/rhadoop.png" style="width:40%;" />
+</div>
+
+  </div>
+</section>
+<section class="slide shout" id="slide-4">
+  <div>
+    <h2>Why R?</h2>
+    <!--footer>
+    <p>Is this even a question?</p>
+</footer-->
+
+  </div>
+</section>
+<section class="slide " id="slide-5">
+  <div>
+    <h2>Why R?</h2>
+    <ul>
+<li>Great community support, rich library
+
+<ul>
+<li>Support from academia and industry</li>
+</ul></li>
+<li>Built for math/stats</li>
+<li>Dynamic, flexible (non-judgemental)</li>
+<li>Fun!</li>
+</ul>
+
+  </div>
+</section>
+<section class="slide " id="slide-6">
+  <div>
+    <h2>Why Not R?</h2>
+    <ul>
+<li>Running R in production is terrible</li>
+<li>Memory</li>
+<li>Stack Traces</li>
+<li>Tests :(</li>
+<li>Slow (iteration, memory access)</li>
+<li>Poor parallelization</li>
+</ul>
+
+<p>There are many possible workarounds: <a href="http://adv-r.had.co.nz">http://adv-r.had.co.nz</a>, but you&#39;re always fighting R</p>
+
+  </div>
+</section>
+<section class="slide shout" id="slide-7">
+  <div>
+    <h2>Why Go?</h2>
+    
+  </div>
+</section>
+<section class="slide " id="slide-8">
+  <div>
+    <h2>Why Go?</h2>
+    <ul>
+<li>Great community support (Backed by Google)</li>
+<li>Growing libraries
+
+<ul>
+<li>Numeric: <a href="https://github.com/gonum">https://github.com/gonum</a> (matrix/lapack/blas)</li>
+</ul></li>
+<li>Statically typed</li>
+<li>Collaborative
+
+<ul>
+<li>Readable, many syntactic decisions are made for you (<code>go fmt</code>)</li>
+</ul></li>
+<li>Stable/Maintainable</li>
+<li>Also fun!</li>
+</ul>
+
+  </div>
+</section>
+<section class="slide " id="slide-9">
+  <div>
+    <h2>Why Not Go?</h2>
+    <ul>
+<li>Not numerically oriented</li>
+<li>(Initial) Development isn&#39;t as fast as R</li>
+</ul>
+
+  </div>
+</section>
+<section class="slide shout" id="slide-10">
+  <div>
+    <h2>Getting Started</h2>
+    <style>
+.slide pre code {
+    font-size: 0.8em;
+    border: none;
+}
+</style>
+
+  </div>
+</section>
+<section class="slide " id="slide-11">
+  <div>
+    <h2>Hello, Go!</h2>
+    <pre><code class="go">package main
+
+import (
+    &quot;fmt&quot;
+)
+
+func main() {
+    fmt.Println(&quot;Hello, World!&quot;)
+}
+</code></pre>
+
+  </div>
+</section>
+<section class="slide " id="slide-12">
+  <div>
+    <h2>Build &amp; Install</h2>
+    <pre><code class="bash">hello
+|-- hello.go
+
+$ cd hello
+$ go build &amp;&amp; go install  # compile, then install on $PATH
+$ hello
+Hello, World!
+
+</code></pre>
+
+  </div>
+</section>
+<section class="slide " id="slide-13">
+  <div>
+    <h2>Functions</h2>
+    <pre><code class="go">func sum(x []float64) float64 {
+    var total float64
+    for i := 0; i &lt; len(x); i++ {
+        total += x[i]
+    }
+    return total
+}
+</code></pre>
+
+  </div>
+</section>
+<section class="slide " id="slide-14">
+  <div>
+    <h2>Functions</h2>
+    <pre><code class="go">func sum(x []float64) float64 {
+    var total float64
+    for i, value := range x {
+        total += value
+    }
+    return total
+}
+</code></pre>
+
+  </div>
+</section>
+<section class="slide " id="slide-15">
+  <div>
+    <h2>Types</h2>
+    <pre><code class="go">package vector
+
+type Vector []float64
+
+func (v Vector) Sum() float64 {
+    var sum float64
+    for _, value := range v {
+        sum += value
+    }
+    return sum
+}
+
+</code></pre>
+
+  </div>
+</section>
+<section class="slide " id="slide-16">
+  <div>
+    <h2>Tests</h2>
+    <pre><code class="go">package vector
+
+import (
+    &quot;testing&quot;
+    &quot;github.com/bmizerany/assert&quot;
+)
+
+func TestSum(t *testing.T) {
+    x := Vector{1.0, 2.0, 3.0}
+    assert.Equal(t, 6.0, x.Sum())
+}
+
+</code></pre>
+
+  </div>
+</section>
+<section class="slide " id="slide-17">
+  <div>
+    <h2>Build &amp; Test</h2>
+    <pre><code class="bash">vector
+|-- vector.go
+|-- vector_test.go
+
+$ cd vector
+$ go test
+PASS
+ok      github.com/drewlanenga/vector   0.004s
+
+
+</code></pre>
+
+  </div>
+</section>
+<section class="slide shout" id="slide-18">
+  <div>
+    <h2>No More Kiddie Stuff</h2>
+    
+  </div>
+</section>
+<section class="slide shout" id="slide-19">
+  <div>
+    <h2>No More Kiddie Stuff</h2>
+    <p><img src="assets/img/prof-gopher.png" style="position:absolute;bottom:0px;" /></p>
+
+  </div>
+</section>
+<section class="slide " id="slide-20">
+  <div>
+    <h2>Problem: Detecting Changes in Marketing Segments</h2>
+    <ul>
+<li>Lytics is a marketing data hub, handling data aggregation and resolution from many sources</li>
+<li>Marketers often use segments to treat different users differently</li>
+<li>Marketers engage users on different channels (web, email, mobile, social, POS, etc.)</li>
+<li><strong>Question</strong>: Does what I&#39;m doing make any difference?</li>
+</ul>
+
+  </div>
+</section>
+<section class="slide " id="slide-21">
+  <div>
+    <h2>Segment of Dormant Users</h2>
+    <p><img src="assets/img/impact-down-naked.png" style="width:100%;" /></p>
+
+  </div>
+</section>
+<section class="slide " id="slide-22">
+  <div>
+    <h2>Random Walk</h2>
+    <ul>
+<li>Let&#39;s consider a time series of segment sizes to be a random walk</li>
+<li>We want to test whether there was a change in the location of the series
+
+<ul>
+<li><strong>Hypothesis</strong>: Is there any way to arrive where we got if there were not a location shift?</li>
+<li><strong>Test</strong>: Bootstrap a series of random walks to see if the resulting location is due to chance</li>
+</ul></li>
+</ul>
+
+  </div>
+</section>
+<section class="slide " id="slide-23">
+  <div>
+    <h2>Segment of Dormant Users</h2>
+    <p><img src="assets/img/impact-down-naked.png" style="width:100%;" /></p>
+
+  </div>
+</section>
+<section class="slide " id="slide-24">
+  <div>
+    <h2>Segment of Dormant Users</h2>
+    <p><img src="assets/img/impact-down-full.png" style="width:100%;" /></p>
+
+  </div>
+</section>
+<section class="slide " id="slide-25">
+  <div>
+    <h2>Segment of Repeat Purchasers</h2>
+    <p><img src="assets/img/impact-up-naked.png" style="width:100%;" /></p>
+
+  </div>
+</section>
+<section class="slide " id="slide-26">
+  <div>
+    <h2>Segment of Repeat Purchasers</h2>
+    <p><img src="assets/img/impact-up-full.png" style="width:100%;" /></p>
+
+  </div>
+</section>
+<section class="slide " id="slide-27">
+  <div>
+    <h2>Test Caveats</h2>
+    <ul>
+<li>(Assumption) Series is a random walk</li>
+<li>Test is sensitive to reference and candidate inputs</li>
+</ul>
+
+  </div>
+</section>
+<section class="slide shout" id="slide-28">
+  <div>
+    <h2>R Code</h2>
+    
+  </div>
+</section>
+<section class="slide " id="slide-29">
+  <div>
+    <h2></h2>
+    <pre><code class="r">walks &lt;- function(x1, x2, niter) {
+    x1.diff &lt;- diff(x1)
+    destinations &lt;- rep(0, niter)
+    for(i in 1:niter) {
+        steps &lt;- sample(x1.diff, length(x2.smooth), replace = TRUE)
+        destinations[i] &lt;- x1[length(x1)] + sum(steps)
+    }
+    return(list(
+        lower = mean(destinations &lt; x2[length(x2)],
+        upper = mean(destinations &gt; x2[length(x2)]
+    ))
+}
+</code></pre>
+
+  </div>
+</section>
+<section class="slide shout" id="slide-30">
+  <div>
+    <h2>Go Code</h2>
+    
+  </div>
+</section>
+<section class="slide " id="slide-31">
+  <div>
+    <h2>Channels/Concurrency</h2>
+    <blockquote>
+<p>Do not communicate by sharing memory; instead, share memory by communicating.
+-<a href="https://blog.golang.org/share-memory-by-communicating">https://blog.golang.org/share-memory-by-communicating</a></p>
+</blockquote>
+
+<ul>
+<li><strong>Goroutines</strong> facilitate <em>concurrent execution</em></li>
+<li><strong>Channels</strong> facilitate <em>communication across goroutines</em></li>
+</ul>
+
+  </div>
+</section>
+<section class="slide " id="slide-32">
+  <div>
+    <h2>Vector Type</h2>
+    <pre><code class="go">package walker
+
+type Vector []float64
+
+func (v Vector) Diff() Vector {
+    y := make(Vector, len(v)-1)
+    for i := 0; i &lt; len(y); i++ {
+        y[i] = v[i+1] - v[i]
+    }
+    return y
+}
+</code></pre>
+
+  </div>
+</section>
+<section class="slide " id="slide-33">
+  <div>
+    <h2>Randomization</h2>
+    <pre><code class="go">var (
+    rnd   = rand.New(rand.NewSource(time.Now().UnixNano()))
+    rndmu = &amp;sync.Mutex{}
+)
+</code></pre>
+
+<ul>
+<li><code>rnd</code> is not thread safe.  If we&#39;re using <code>rnd</code> in separate goroutines, we&#39;ll need to lock it.</li>
+</ul>
+
+  </div>
+</section>
+<section class="slide " id="slide-34">
+  <div>
+    <h2>Random Walk</h2>
+    <pre><code class="go">func walk(nsteps int, steps Vector) float64 {
+    var dest float64
+    for i := 0; i &lt; nsteps; i++ {
+        rndmu.Lock()
+        which := rnd.Intn(len(steps))
+        rndmu.Unlock()
+
+        dest += steps[which]
+    }
+    return dest
+}
+</code></pre>
+
+  </div>
+</section>
+<section class="slide " id="slide-35">
+  <div>
+    <h2>Bootstrapped Random Walk</h2>
+    <pre><code class="go">func Walks(niter, nsteps int, dest float64, history Vector)
+  (float64, float64) {
+    destinations := make(Vector, niter)
+    steps := history.Diff()
+    for i := 0; i &lt; niter; i++ {
+        destinations.Walk(i, nsteps, steps)
+    }
+    // do stuff to make comparisons to calculate
+    // p-values from destinations
+    return plow, phigh
+}
+</code></pre>
+
+  </div>
+</section>
+<section class="slide " id="slide-36">
+  <div>
+    <h2>Bootstrapped Random Walk</h2>
+    <pre><code class="go">func (v Vector) Walk(i, nsteps int, steps Vector) {
+    dest := walk(nsteps, steps)
+    v[i] = dest
+    // no need to return anything, updated in place
+}
+</code></pre>
+
+  </div>
+</section>
+<section class="slide " id="slide-37">
+  <div>
+    <h2>Concurrent Bootstrapped Random Walk</h2>
+    <pre><code class="go">func Walks(niter, nsteps, ncpu int, dest float64, history Vector)
+  (float64, float64) {
+    runtime.GOMAXPROCS(ncpu)
+    destinations := make(Vector, niter)
+    steps := history.Diff()
+    c := make(chan int, ncpu)
+    for i := 0; i &lt; niter; i++ {
+        // launch each walk in its own goroutine
+        go destinations.Walk(i, nsteps, steps, c)
+    }
+    // continued on next slide
+</code></pre>
+
+  </div>
+</section>
+<section class="slide " id="slide-38">
+  <div>
+    <h2>Concurrent Bootstrapped Random Walk</h2>
+    <pre><code class="go">    // drain the channel
+    for i := 0; i &lt; ncpu; i++ {
+        &lt;-c // wait for a task to complete
+    }
+
+    // calculate p-values
+    return compare(destinations, dest)
+}
+</code></pre>
+
+  </div>
+</section>
+<section class="slide " id="slide-39">
+  <div>
+    <h2>Concurrent Bootstrapped Random Walk</h2>
+    <pre><code class="go">func (v Vector) Walk(i, nsteps int, steps Vector, c chan int) {
+    dest := walk[nsteps]
+    v[i] = dest
+
+    c &lt;- 1 // send anything back to notify completion
+}
+
+</code></pre>
+
+  </div>
+</section>
+<section class="slide " id="slide-40">
+  <div>
+    <h2></h2>
+    <pre><code class="go">func compare(destinations Vector, dest float64) (float64, float64) {
+    nsteps := float64(len(destinations))
+    var nlow, nhigh float64
+    for _, dest := range destinations {
+        if dest &gt; realDest {
+            nlow += 1.0
+        } else if dest &lt; realDest {
+            nhigh += 1.0
+        }
+    }
+    return nlow / nsteps, nhigh / steps
+}
+</code></pre>
+
+  </div>
+</section>
+<section class="slide " id="slide-41">
+  <div>
+    <h2>Go Resources</h2>
+    <ul>
+<li>Tour: <a href="http://tour.golang.org">http://tour.golang.org</a></li>
+<li>Installation: <a href="http://golang.org/doc/install">http://golang.org/doc/install</a></li>
+<li>Imports/Fmt: <a href="https://godoc.org/golang.org/x/tools/cmd/goimports">https://godoc.org/golang.org/x/tools/cmd/goimports</a></li>
+<li>Documentation:
+
+<ul>
+<li>Standard Library: <a href="https://golang.org/pkg">https://golang.org/pkg</a></li>
+<li>Community: <a href="https://godoc.org">https://godoc.org</a> </li>
+</ul></li>
+</ul>
+
+  </div>
+</section>
+<section class="slide " id="slide-42">
+  <div>
+    <h2>Links</h2>
+    <ul>
+<li>Example Go Code: <a href="https://github.com/drewlanenga/walker">https://github.com/drewlanenga/walker</a></li>
+<li>Productionalized Example: <a href="https://github.com/lytics/impact">https://github.com/lytics/impact</a></li>
+<li>R-Like Vector Package: <a href="https://github.com/drewlanenga/govector">https://github.com/drewlanenga/govector</a></li>
+<li>Talk Slides: <a href="https://drewlanenga.github.io/rmeetup">https://drewlanenga.github.io/rmeetup</a></li>
+<li>Slide Library: <a href="http://slidify.org">http://slidify.org</a></li>
+</ul>
+
+  </div>
+</section>
+<section class="slide " id="slide-43">
+  <div>
+    <h2>Thanks</h2>
+    <p>Drew Lanenga <br />
+<a href="mailto:drew@lytics.io">drew@lytics.io</a></p>
+
+<div style="text-align:center;">
+    <img src="assets/img/lytics.png" style="width:50%;" /><br />
+    We're Hiring
+</div>
+
+  </div>
+</section>
+  <div class="progress">
+    <div></div>
+  </div>
+	<script src="libraries/frameworks/shower/shower.js"></script>
+	<!-- LOAD HIGHLIGHTER JS FILES -->
+	<script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	<!-- DONE LOADING HIGHLIGHTER JS FILES -->
+	 
+		<!-- Copyright © 2010–2012 Vadim Makeev — pepelsbey.net -->
+</body>
+</html>
