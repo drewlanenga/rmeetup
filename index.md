@@ -32,8 +32,7 @@ Who has ever made R do something it probably wasn't supposed to do?
 ## Why R?
 
 <!--footer>
-	<!-- You can add footers here, and then mouse over them on the grid layout. -->
-	<p>Is this even a question?</p>
+	<p>You can add footers here, and then mouse over them on the grid layout.</p>
 </footer-->
 
 ---
