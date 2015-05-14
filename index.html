@@ -39,20 +39,16 @@
   		<strong>Drew Lanenga</strong>, Data Scientist, Lytics
   	</p>
 	</header>
-  <section class="slide cover" id="Cover">
+  <section class="slide shout inverse" id="slide-1">
   <div>
-    <h2>R vs. Go</h2>
-    <p><img src="assets/img/flying-gopher.jpg" alt="flying-gopher"></p>
+    <h2>R + Go</h2>
+    <p><img src="assets/img/prof-gopher.png" style="position:absolute;bottom:0px;" /></p>
+
+<!-- ![prof-gopher](assets/img/flying-gopher.jpg) -->
 
   </div>
 </section>
-<section class="slide shout" id="slide-2">
-  <div>
-    <h2>Confessions</h2>
-    
-  </div>
-</section>
-<section class="slide " id="slide-3">
+<section class="slide " id="slide-2">
   <div>
     <h2>Confessions</h2>
     <p>Who has ever made R do something it probably wasn&#39;t supposed to do?</p>
@@ -63,19 +59,24 @@
 
   </div>
 </section>
-<section class="slide shout" id="slide-4">
+<section class="slide shout" id="slide-3">
   <div>
     <h2>Why R?</h2>
     <!--footer>
-    <p>Is this even a question?</p>
-</footer-->
+    <!-- You can add footers here, and then mouse over them on the grid layout. -->
+
+<pre><code>&lt;p&gt;Is this even a question?&lt;/p&gt;
+</code></pre>
+
+<p></footer--></p>
 
   </div>
 </section>
-<section class="slide " id="slide-5">
+<section class="slide " id="slide-4">
   <div>
     <h2>Why R?</h2>
     <ul>
+<li>Plots/Visualization</li>
 <li>Great community support, rich library
 
 <ul>
@@ -83,19 +84,20 @@
 </ul></li>
 <li>Built for math/stats</li>
 <li>Dynamic, flexible (non-judgemental)</li>
+<li>Interactive/REPL/Exploration</li>
 <li>Fun!</li>
 </ul>
 
   </div>
 </section>
-<section class="slide " id="slide-6">
+<section class="slide " id="slide-5">
   <div>
     <h2>Why Not R?</h2>
     <ul>
 <li>Running R in production is terrible</li>
 <li>Memory</li>
 <li>Stack Traces</li>
-<li>Tests :(</li>
+<li>Tests/Assertions :(</li>
 <li>Slow (iteration, memory access)</li>
 <li>Poor parallelization</li>
 </ul>
@@ -104,13 +106,13 @@
 
   </div>
 </section>
-<section class="slide shout" id="slide-7">
+<section class="slide shout" id="slide-6">
   <div>
     <h2>Why Go?</h2>
     
   </div>
 </section>
-<section class="slide " id="slide-8">
+<section class="slide " id="slide-7">
   <div>
     <h2>Why Go?</h2>
     <ul>
@@ -132,17 +134,22 @@
 
   </div>
 </section>
-<section class="slide " id="slide-9">
+<section class="slide " id="slide-8">
   <div>
     <h2>Why Not Go?</h2>
     <ul>
 <li>Not numerically oriented</li>
+<li>Difficult for exploration
+
+<ul>
+<li>No visualization</li>
+</ul></li>
 <li>(Initial) Development isn&#39;t as fast as R</li>
 </ul>
 
   </div>
 </section>
-<section class="slide shout" id="slide-10">
+<section class="slide shout" id="slide-9">
   <div>
     <h2>Getting Started</h2>
     <style>
@@ -154,7 +161,7 @@
 
   </div>
 </section>
-<section class="slide " id="slide-11">
+<section class="slide " id="slide-10">
   <div>
     <h2>Hello, Go!</h2>
     <pre><code class="go">package main
@@ -170,7 +177,7 @@ func main() {
 
   </div>
 </section>
-<section class="slide " id="slide-12">
+<section class="slide " id="slide-11">
   <div>
     <h2>Build &amp; Install</h2>
     <pre><code class="bash">hello
@@ -185,7 +192,7 @@ Hello, World!
 
   </div>
 </section>
-<section class="slide " id="slide-13">
+<section class="slide " id="slide-12">
   <div>
     <h2>Functions</h2>
     <pre><code class="go">func sum(x []float64) float64 {
@@ -199,7 +206,7 @@ Hello, World!
 
   </div>
 </section>
-<section class="slide " id="slide-14">
+<section class="slide " id="slide-13">
   <div>
     <h2>Functions</h2>
     <pre><code class="go">func sum(x []float64) float64 {
@@ -213,7 +220,7 @@ Hello, World!
 
   </div>
 </section>
-<section class="slide " id="slide-15">
+<section class="slide " id="slide-14">
   <div>
     <h2>Types</h2>
     <pre><code class="go">package vector
@@ -232,7 +239,7 @@ func (v Vector) Sum() float64 {
 
   </div>
 </section>
-<section class="slide " id="slide-16">
+<section class="slide " id="slide-15">
   <div>
     <h2>Tests</h2>
     <pre><code class="go">package vector
@@ -251,7 +258,7 @@ func TestSum(t *testing.T) {
 
   </div>
 </section>
-<section class="slide " id="slide-17">
+<section class="slide " id="slide-16">
   <div>
     <h2>Build &amp; Test</h2>
     <pre><code class="bash">vector
@@ -262,26 +269,17 @@ $ cd vector
 $ go test
 PASS
 ok      github.com/drewlanenga/vector   0.004s
-
-
 </code></pre>
 
   </div>
 </section>
-<section class="slide shout" id="slide-18">
+<section class="slide shout" id="slide-17">
   <div>
-    <h2>No More Kiddie Stuff</h2>
+    <h2>Real World</h2>
     
   </div>
 </section>
-<section class="slide shout" id="slide-19">
-  <div>
-    <h2>No More Kiddie Stuff</h2>
-    <p><img src="assets/img/prof-gopher.png" style="position:absolute;bottom:0px;" /></p>
-
-  </div>
-</section>
-<section class="slide " id="slide-20">
+<section class="slide " id="slide-18">
   <div>
     <h2>Problem: Detecting Changes in Marketing Segments</h2>
     <ul>
@@ -293,14 +291,14 @@ ok      github.com/drewlanenga/vector   0.004s
 
   </div>
 </section>
-<section class="slide " id="slide-21">
+<section class="slide " id="slide-19">
   <div>
     <h2>Segment of Dormant Users</h2>
     <p><img src="assets/img/impact-down-naked.png" style="width:100%;" /></p>
 
   </div>
 </section>
-<section class="slide " id="slide-22">
+<section class="slide " id="slide-20">
   <div>
     <h2>Random Walk</h2>
     <ul>
@@ -315,51 +313,41 @@ ok      github.com/drewlanenga/vector   0.004s
 
   </div>
 </section>
-<section class="slide " id="slide-23">
+<section class="slide " id="slide-21">
   <div>
     <h2>Segment of Dormant Users</h2>
     <p><img src="assets/img/impact-down-naked.png" style="width:100%;" /></p>
 
   </div>
 </section>
-<section class="slide " id="slide-24">
+<section class="slide " id="slide-22">
   <div>
     <h2>Segment of Dormant Users</h2>
     <p><img src="assets/img/impact-down-full.png" style="width:100%;" /></p>
 
   </div>
 </section>
-<section class="slide " id="slide-25">
+<section class="slide " id="slide-23">
   <div>
     <h2>Segment of Repeat Purchasers</h2>
     <p><img src="assets/img/impact-up-naked.png" style="width:100%;" /></p>
 
   </div>
 </section>
-<section class="slide " id="slide-26">
+<section class="slide " id="slide-24">
   <div>
     <h2>Segment of Repeat Purchasers</h2>
     <p><img src="assets/img/impact-up-full.png" style="width:100%;" /></p>
 
   </div>
 </section>
-<section class="slide " id="slide-27">
-  <div>
-    <h2>Test Caveats</h2>
-    <ul>
-<li>(Assumption) Series is a random walk</li>
-<li>Test is sensitive to reference and candidate inputs</li>
-</ul>
-
-  </div>
-</section>
-<section class="slide shout" id="slide-28">
+<section class="slide shout" id="slide-25">
   <div>
     <h2>R Code</h2>
     
   </div>
 </section>
-<section class="slide " id="slide-29">
+<section class="slide " id="slide-26">
   <div>
     <h2></h2>
     <pre><code class="r">walks &lt;- function(x1, x2, niter) {
@@ -378,19 +366,21 @@ ok      github.com/drewlanenga/vector   0.004s
 
   </div>
 </section>
-<section class="slide shout" id="slide-30">
+<section class="slide shout" id="slide-27">
   <div>
     <h2>Go Code</h2>
     
   </div>
 </section>
-<section class="slide " id="slide-31">
+<section class="slide " id="slide-28">
   <div>
     <h2>Channels/Concurrency</h2>
     <blockquote>
-<p>Do not communicate by sharing memory; instead, share memory by communicating.
--<a href="https://blog.golang.org/share-memory-by-communicating">https://blog.golang.org/share-memory-by-communicating</a></p>
-</blockquote>
+<p>Do not communicate by sharing memory; instead, share memory by communicating.</p>
+
+<ul>
+<li><a href="https://blog.golang.org/share-memory-by-communicating">https://blog.golang.org/share-memory-by-communicating</a></li>
+</ul>
 
 <ul>
 <li><strong>Goroutines</strong> facilitate <em>concurrent execution</em></li>
@@ -399,7 +389,7 @@ ok      github.com/drewlanenga/vector   0.004s
 
   </div>
 </section>
-<section class="slide " id="slide-32">
+<section class="slide " id="slide-29">
   <div>
     <h2>Vector Type</h2>
     <pre><code class="go">package walker
@@ -417,7 +407,7 @@ func (v Vector) Diff() Vector {
 
   </div>
 </section>
-<section class="slide " id="slide-33">
+<section class="slide " id="slide-30">
   <div>
     <h2>Randomization</h2>
     <pre><code class="go">var (
@@ -432,7 +422,7 @@ func (v Vector) Diff() Vector {
 
   </div>
 </section>
-<section class="slide " id="slide-34">
+<section class="slide " id="slide-31">
   <div>
     <h2>Random Walk</h2>
     <pre><code class="go">func walk(nsteps int, steps Vector) float64 {
@@ -450,7 +440,7 @@ func (v Vector) Diff() Vector {
 
   </div>
 </section>
-<section class="slide " id="slide-35">
+<section class="slide " id="slide-32">
   <div>
     <h2>Bootstrapped Random Walk</h2>
     <pre><code class="go">func Walks(niter, nsteps int, dest float64, history Vector)
@@ -468,7 +458,7 @@ func (v Vector) Diff() Vector {
 
   </div>
 </section>
-<section class="slide " id="slide-36">
+<section class="slide " id="slide-33">
   <div>
     <h2>Bootstrapped Random Walk</h2>
     <pre><code class="go">func (v Vector) Walk(i, nsteps int, steps Vector) {
@@ -480,7 +470,7 @@ func (v Vector) Diff() Vector {
 
   </div>
 </section>
-<section class="slide " id="slide-37">
+<section class="slide " id="slide-34">
   <div>
     <h2>Concurrent Bootstrapped Random Walk</h2>
     <pre><code class="go">func Walks(niter, nsteps, ncpu int, dest float64, history Vector)
@@ -498,7 +488,7 @@ func (v Vector) Diff() Vector {
 
   </div>
 </section>
-<section class="slide " id="slide-38">
+<section class="slide " id="slide-35">
   <div>
     <h2>Concurrent Bootstrapped Random Walk</h2>
     <pre><code class="go">    // drain the channel
@@ -513,7 +503,7 @@ func (v Vector) Diff() Vector {
 
   </div>
 </section>
-<section class="slide " id="slide-39">
+<section class="slide " id="slide-36">
   <div>
     <h2>Concurrent Bootstrapped Random Walk</h2>
     <pre><code class="go">func (v Vector) Walk(i, nsteps int, steps Vector, c chan int) {
@@ -527,7 +517,7 @@ func (v Vector) Diff() Vector {
 
   </div>
 </section>
-<section class="slide " id="slide-40">
+<section class="slide " id="slide-37">
   <div>
     <h2></h2>
     <pre><code class="go">func compare(destinations Vector, dest float64) (float64, float64) {
@@ -546,7 +536,7 @@ func (v Vector) Diff() Vector {
 
   </div>
 </section>
-<section class="slide " id="slide-41">
+<section class="slide " id="slide-38">
   <div>
     <h2>Go Resources</h2>
     <ul>
@@ -563,7 +553,7 @@ func (v Vector) Diff() Vector {
 
   </div>
 </section>
-<section class="slide " id="slide-42">
+<section class="slide " id="slide-39">
   <div>
     <h2>Links</h2>
     <ul>
@@ -576,15 +566,17 @@ func (v Vector) Diff() Vector {
 
   </div>
 </section>
-<section class="slide " id="slide-43">
+<section class="slide " id="slide-40">
   <div>
-    <h2>Thanks</h2>
-    <p>Drew Lanenga <br />
-<a href="mailto:drew@lytics.io">drew@lytics.io</a></p>
-
-<div style="text-align:center;">
-    <img src="assets/img/lytics.png" style="width:50%;" /><br />
-    We're Hiring
+    <h2></h2>
+    <div style="text-align:center;">
+    <div style="padding: 60px 0px;">
+        <img src="assets/img/lytics.png" style="width:40%;" /> <br />
+    </div>
+    <div>
+        Drew Lanenga <br />
+        <a href="mailto:drew@lytics.io">drew@lytics.io</a>
+    </div>
 </div>
 
   </div>

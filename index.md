@@ -9,15 +9,13 @@ highlighter : highlight.js
 hitheme     : arta
 widgets     : []
 mode        : selfcontained
---- .cover #Cover
+--- .shout .inverse
 
-## R vs. Go
+## R + Go
 
-![flying-gopher](assets/img/flying-gopher.jpg)
+<img src="assets/img/prof-gopher.png" style="position:absolute;bottom:0px;" />
 
---- .shout
-
-## Confessions
+<!-- ![prof-gopher](assets/img/flying-gopher.jpg) -->
 
 ---
 
@@ -34,6 +32,7 @@ Who has ever made R do something it probably wasn't supposed to do?
 ## Why R?
 
 <!--footer>
+	<!-- You can add footers here, and then mouse over them on the grid layout. -->
 	<p>Is this even a question?</p>
 </footer-->
 
@@ -41,10 +40,12 @@ Who has ever made R do something it probably wasn't supposed to do?
 
 ## Why R?
 
+- Plots/Visualization
 - Great community support, rich library
     - Support from academia and industry
 - Built for math/stats
 - Dynamic, flexible (non-judgemental)
+- Interactive/REPL/Exploration
 - Fun!
 
 ---
@@ -54,7 +55,7 @@ Who has ever made R do something it probably wasn't supposed to do?
 - Running R in production is terrible
 - Memory
 - Stack Traces
-- Tests :(
+- Tests/Assertions :(
 - Slow (iteration, memory access)
 - Poor parallelization
 
@@ -82,6 +83,8 @@ There are many possible workarounds: http://adv-r.had.co.nz, but you're always f
 ## Why Not Go?
 
 - Not numerically oriented
+- Difficult for exploration
+    - No visualization
 - (Initial) Development isn't as fast as R
 
 --- .shout
@@ -205,19 +208,11 @@ $ cd vector
 $ go test
 PASS
 ok  	github.com/drewlanenga/vector	0.004s
-
-
 ```
 
 --- .shout
 
-## No More Kiddie Stuff
-
---- .shout
-
-## No More Kiddie Stuff
-
-<img src="assets/img/prof-gopher.png" style="position:absolute;bottom:0px;" />
+## Real World
 
 ---
 
@@ -268,13 +263,6 @@ ok  	github.com/drewlanenga/vector	0.004s
 
 <img src="assets/img/impact-up-full.png" style="width:100%;" />
 
----
-
-## Test Caveats
-
-- (Assumption) Series is a random walk
-- Test is sensitive to reference and candidate inputs
-
 --- .shout
 
 ## R Code
@@ -305,7 +293,7 @@ walks <- function(x1, x2, niter) {
 ## Channels/Concurrency
 
 > Do not communicate by sharing memory; instead, share memory by communicating.
-> -https://blog.golang.org/share-memory-by-communicating
+> - https://blog.golang.org/share-memory-by-communicating
 
 - **Goroutines** facilitate *concurrent execution*
 - **Channels** facilitate *communication across goroutines*
@@ -477,14 +465,14 @@ func compare(destinations Vector, dest float64) (float64, float64) {
 
 ---
 
-## Thanks
-
-Drew Lanenga <br />
-drew@lytics.io
-
 <div style="text-align:center;">
-	<img src="assets/img/lytics.png" style="width:50%;" /><br />
-	We're Hiring
+	<div style="padding: 60px 0px;">
+		<img src="assets/img/lytics.png" style="width:40%;" /> <br />
+	</div>
+	<div>
+		Drew Lanenga <br />
+		<a href="mailto:drew@lytics.io">drew@lytics.io</a>
+	</div>
 </div>
 
 
